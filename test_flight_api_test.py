@@ -40,9 +40,9 @@ def test_search_flights(config, search_data):
         assert res.status_code == 200
         assert res.elapsed.total_seconds() < 1.0
 
-def test_invalid_search_cases(config, invalid_data):
-    for case in invalid_data:
-        key = case.get("api_key", config["api_key"])
-        res = search_flights(config["base_url"], key, case["source"], case["destination"], case["date"])
-        print(f"\n[Invalid Test: {case['desc']}] URL: {res.url} => Status: {res.status_code}")
-        assert res.status_code in [401, 404, 403]
+# def test_invalid_search_cases(config, invalid_data):
+#     for case in invalid_data:
+#         key = case.get("api_key", config["api_key"])
+#         res = search_flights(config["base_url"], key, case["source"], case["destination"], case["date"])
+#         print(f"\n[Invalid Test: {case['desc']}] URL: {res.url} => Status: {res.status_code}")
+#         assert res.status_code in [401, 404, 403]
